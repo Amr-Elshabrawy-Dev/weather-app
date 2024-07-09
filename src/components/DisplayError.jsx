@@ -5,7 +5,7 @@ const DisplayError = ({ error }) => {
   const [close, setClose] = useState(false);
   return (
     <div
-      className={`fixed top-5 right-5 flex items-center justify-between w-full max-w-sm p-4 bg-red-300 bg-opacity-70 text-red-700 rounded-lg shadow ${
+      className={`fixed md:top-5 top-0 md:right-5 right-0 flex items-center justify-between w-full md:max-w-sm p-4 bg-red-300 bg-opacity-70 text-red-700 rounded-lg shadow ${
         close && "hidden"
       }`}
     >

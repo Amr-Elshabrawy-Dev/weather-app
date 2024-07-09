@@ -56,7 +56,7 @@ const App = () => {
     if (weather.temp <= step)
       return "from-cyan-600 to-blue-700 shadow-blue-300";
 
-    return "from-yellow-600 to-orange-700 shadow-orange-300";
+    return "from-yellow-500 to-orange-300 shadow-orange-200";
   }, [weather, units]);
 
   const fetchWeather = useCallback(
@@ -97,7 +97,7 @@ const App = () => {
       className={`w-full min-h-dvh overflow-hidden grid place-content-center bg-gradient-to-br ${formatBackground}`}
     >
       <div
-        className={`mx-auto max-w-screen-lg py-5 px-32 shadow-2xl bg-gradient-to-b ${formatBackground}`}
+        className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-5 px-32 shadow-xl bg-gradient-to-b ${formatBackground}`}
       >
         <TopButtons setQuery={setQuery} />
         <Inputs

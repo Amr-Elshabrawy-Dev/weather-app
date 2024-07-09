@@ -55,7 +55,6 @@ const formatWeatherData = (WeatherResponse) => {
       },
     ],
   } = WeatherResponse;
-  console.log("🚀 ~ formatWeatherData ~ message:", message);
 
   // hourly
   const hourly = list.slice(0, 5).map((f) => ({
