@@ -8,6 +8,7 @@ import { WeatherContext } from "./context/weatherContext";
 import hrefUrl from "./services/weatherService";
 import Loading from "./components/Loading";
 import DisplayError from "./components/DisplayError";
+import BgColor from "./context/bgColorContext";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
@@ -49,15 +50,24 @@ const App = () => {
     handleLocation();
   }, [handleLocation]);
 
-  const formatBackground = useMemo(() => {
+  const formatBackground = () => {
     if (!weather) return "from-cyan-600 to-blue-700";
 
     const step = units === "metric" ? 22 : 60;
     if (weather.temp <= step)
       return "from-cyan-600 to-blue-700 shadow-blue-300";
 
-    return "from-yellow-500 to-orange-300 shadow-orange-200";
-  }, [weather, units]);
+    return "from-yellow-500 to-orange-400 shadow-orange-200";
+  };
+
+  const formatBgColor = () => {
+    if (!weather) return "bg-blue-700/20";
+
+    const step = units === "metric" ? 22 : 60;
+    if (weather.temp <= step) return "bg-gray-700/20";
+
+    return "bg-red-700/20";
+  };
 
   const fetchWeather = useCallback(
     async (searchParams) => {
@@ -93,31 +103,33 @@ const App = () => {
   }, [query, units, fetchWeather]);
 
   return (
-    <div
-      className={`w-full min-h-dvh overflow-hidden grid place-content-center bg-gradient-to-br ${formatBackground}`}
-    >
+    <BgColor.Provider value={formatBgColor()}>
       <div
-        className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-5 px-32 shadow-xl bg-gradient-to-b ${formatBackground}`}
+        className={`w-full min-h-dvh overflow-hidden grid place-content-center bg-gradient-to-br ${formatBackground()}`}
       >
-        <TopButtons setQuery={setQuery} />
-        <Inputs
-          setQuery={setQuery}
-          setUnits={setUnits}
-          handleLocation={handleLocation}
-        />
+        <div
+          className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-10 px-32 rounded-xl shadow-xl bg-gradient-to-b ${formatBackground()}`}
+        >
+          <TopButtons setQuery={setQuery} />
+          <Inputs
+            setQuery={setQuery}
+            setUnits={setUnits}
+            handleLocation={handleLocation}
+          />
 
-        {weather && (
-          <>
-            <TimeAndLocation weather={weather} />
-            <TempAndDetails weather={weather} units={units} />
-            <Forecast title="3 hour step forecast" data={weather.hourly} />
-            <Forecast title="daily forecast" data={weather.daily} />
-          </>
-        )}
-        {loading && <Loading />}
-        {toastOpen && <DisplayError error={message} />}
+          {weather && (
+            <>
+              <TimeAndLocation weather={weather} />
+              <TempAndDetails weather={weather} units={units} />
+              <Forecast title="3 hour step forecast" data={weather.hourly} />
+              <Forecast title="daily forecast" data={weather.daily} />
+            </>
+          )}
+          {loading && <Loading />}
+          {toastOpen && <DisplayError error={message} />}
+        </div>
       </div>
-    </div>
+    </BgColor.Provider>
   );
 };
 

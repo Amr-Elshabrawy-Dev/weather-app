@@ -3,8 +3,11 @@ import { FaThermometerEmpty } from "react-icons/fa";
 import { FiWind } from "react-icons/fi";
 import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import BgColor from "../context/bgColorContext";
+import { useContext } from "react";
 
 const TempAndDetails = ({ units, weather }) => {
+  const bgColor = useContext(BgColor);
   const {
     desc,
     feels_like,
@@ -56,18 +59,23 @@ const TempAndDetails = ({ units, weather }) => {
   ];
 
   return (
-    <div>
-      <div className="flex items-center justify-center py-6 md:text-xl text-lg text-cyan-300 capitalize">
+    <div className={`${bgColor} rounded-md shadow-inner-lg md:px-6`}>
+      <div className="flex items-center justify-center py-6 mt-6 md:text-xl text-lg text-cyan-300 capitalize">
         <p>{desc}</p>
       </div>
       <div className="flex flex-row items-center justify-between p-3">
-        <img src={icon} width={"80px"} alt="weather icon" className="w-20" />
-        <p className="text-5xl">{`${temp.toFixed()}°`}</p>
+        <img
+          src={icon}
+          width={"80px"}
+          alt="weather icon"
+          className="md:w-20 w-16"
+        />
+        <p className="md:text-5xl text-4xl">{`${temp.toFixed()}°`}</p>
         <div className="flex flex-col space-y-3 items-start">
           {verticalDetails.map(({ id, Icon, title, value }) => (
             <div
               key={id}
-              className="flex font-light text-sm items-center justify-center"
+              className="flex font-light md:text-base text-sm items-center justify-center"
             >
               <Icon size={18} className="mr-1" />
               {title}: <span className="font-medium ml-1">{value}</span>
@@ -75,7 +83,7 @@ const TempAndDetails = ({ units, weather }) => {
           ))}
         </div>
       </div>
-      <div className="flex flex-row flex-wrap items-center md:justify-center justify-around md:space-x-10 space-x-3 gap-3 text-sm py-3">
+      <div className="flex flex-row flex-wrap items-center lg:justify-center justify-around lg:space-x-10 space-x-4 gap-3 text-sm md:text-base py-3">
         {horizontalDetails.map(({ id, Icon, title, value }) => (
           <div key={id} className="flex items-center">
             <Icon size={30} className="mr-1" />

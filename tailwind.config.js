@@ -12,6 +12,9 @@ export default {
           "100%": { width: "0%" },
         },
       },
+      boxShadow: {
+        "inner-lg": "inset 0 0 50px -10px rgba(0, 0, 0, 0.3)",
+      },
     },
   },
   plugins: [],

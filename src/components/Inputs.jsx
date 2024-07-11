@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiCurrentLocation, BiSearch } from "react-icons/bi";
+import BgColor from "../context/bgColorContext";
 
 const Inputs = ({ setQuery, setUnits, handleLocation }) => {
   const [city, setCity] = useState("");
+  const bgColor = useContext(BgColor);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -15,7 +17,9 @@ const Inputs = ({ setQuery, setUnits, handleLocation }) => {
   };
 
   return (
-    <div className="flex md:flex-row flex-col justify-center my-6 px-3 space-y-4 md:space-y-0">
+    <div
+      className={`flex md:flex-row flex-col justify-center py-3 px-3 space-y-4 md:space-y-0 ${bgColor} rounded-md shadow-inner-lg`}
+    >
       <form
         onSubmit={handleSubmitForm}
         className="flex flex-row w-full md:w-3/4 items-center justify-center space-x-4"

@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import BgColor from "../context/bgColorContext";
+
 const Forecast = ({ title, data }) => {
+  const bgColor = useContext(BgColor);
+
   return (
-    <div>
-      <div className="flex items-center justify-start mt-6">
+    <div className={`${bgColor} rounded-md shadow-inner-lg pb-3 px-3`}>
+      <div className="flex items-center justify-start pt-2 mt-6 ">
         <p className="font-medium uppercase">{title}</p>
       </div>
       <hr className="my-1" />
@@ -11,12 +16,12 @@ const Forecast = ({ title, data }) => {
             key={index}
             className="flex flex-col items-center justify-center"
           >
-            <p className="font-normal text-xs">{item.title}</p>
+            <p className="font-normal md:text-base text-xs">{item.title}</p>
             <img
               src={item.icon}
               width={"48px"}
               alt="weather icon"
-              className="w-12 my-1"
+              className="md:w-12 w-10 my-1"
             />
             <p className="font-medium">{`${item.temp.toFixed()}°`}</p>
           </div>
