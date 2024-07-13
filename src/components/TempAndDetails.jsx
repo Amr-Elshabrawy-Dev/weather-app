@@ -83,7 +83,7 @@ const TempAndDetails = ({ units, weather }) => {
           ))}
         </div>
       </div>
-      <div className="flex flex-row flex-wrap items-center lg:justify-center justify-around lg:space-x-10 space-x-4 gap-3 text-sm md:text-base py-3">
+      <div className="flex flex-row flex-wrap items-center lg:justify-center justify-around lg:space-x-8 space-x-4 gap-3 text-sm md:text-base py-3">
         {horizontalDetails.map(({ id, Icon, title, value }) => (
           <div key={id} className="flex items-center">
             <Icon size={30} className="mr-1" />

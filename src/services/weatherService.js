@@ -1,5 +1,5 @@
 const hrefUrl = (searchParams) => {
-  const API_KEY = "b1c11727454d356fad76a5b8a6d84662";
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const forecastUrl = new URL(
     "https://api.openweathermap.org/data/2.5/forecast"
   );

@@ -38,8 +38,9 @@ const titleDateHourly = (dt) => {
   return `${formattedHours}:${formattedMinutes} ${amPm}`;
 };
 
-const iconUrlFromCode = (icon) =>
-  `https://openweathermap.org/img/wn/${icon}@2x.png`;
+// `https://openweathermap.org/img/wn/${icon}.png`
+
+const iconUrlFromCode = (icon) => `./icons/${icon}.png`;
 
 const formatWeatherData = (WeatherResponse) => {
   const {

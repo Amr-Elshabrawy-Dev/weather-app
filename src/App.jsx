@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useCallback, useMemo } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
 import Forecast from "./components/Forecast";
 import Inputs from "./components/Inputs";
 import TempAndDetails from "./components/TempAndDetails";
@@ -51,20 +51,20 @@ const App = () => {
   }, [handleLocation]);
 
   const formatBackground = () => {
-    if (!weather) return "from-cyan-600 to-blue-700";
+    if (!weather) return "from-blue-400 to-blue-700";
 
     const step = units === "metric" ? 22 : 60;
     if (weather.temp <= step)
-      return "from-cyan-600 to-blue-700 shadow-blue-300";
+      return "from-blue-400 to-blue-700 shadow-blue-300";
 
-    return "from-yellow-500 to-orange-400 shadow-orange-200";
+    return "from-yellow-500 to-orange-700 shadow-orange-200";
   };
 
   const formatBgColor = () => {
     if (!weather) return "bg-blue-700/20";
 
     const step = units === "metric" ? 22 : 60;
-    if (weather.temp <= step) return "bg-gray-700/20";
+    if (weather.temp <= step) return "bg-blue-700/20";
 
     return "bg-red-700/20";
   };
