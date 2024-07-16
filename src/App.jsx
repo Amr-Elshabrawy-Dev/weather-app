@@ -5,7 +5,7 @@ import TempAndDetails from "./components/TempAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TopButtons from "./components/TopButtons";
 import { WeatherContext } from "./context/weatherContext";
-import hrefUrl from "./services/weatherService";
+import { weatherApiUrl } from "./services/weatherService";
 import Loading from "./components/Loading";
 import DisplayError from "./components/DisplayError";
 import BgColor from "./context/bgColorContext";
@@ -71,7 +71,7 @@ const App = () => {
 
   const fetchWeather = useCallback(
     async (searchParams) => {
-      const forecastUrl = hrefUrl(searchParams);
+      const forecastUrl = weatherApiUrl(searchParams);
       dispatch({ type: "FETCH_WEATHER_REQUEST" });
       try {
         const forecastResponse = await fetch(forecastUrl);
