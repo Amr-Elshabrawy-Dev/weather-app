@@ -9,7 +9,7 @@ const Inputs = ({ setQuery, setUnits, handleLocation }) => {
   const [cities, setCities] = useState([]);
   const [namePrefix, setNamePrefix] = useState("");
   const bgColor = useContext(BgColor);
-  const debounce = useDebounce(namePrefix, 1000);
+  const debounce = useDebounce(namePrefix, 600);
 
   const fetchGeoPlaces = useCallback(async (searchParams) => {
     try {
