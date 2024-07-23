@@ -15,7 +15,12 @@ export default {
       boxShadow: {
         "inner-lg": "inset 0 0 50px -10px rgba(0, 0, 0, 0.3)",
       },
+      backgroundImage: {
+        day: "url('./src/assets/img/day.jpg')",
+        night: "url('./src/assets/img/night.jpg')",
+      },
     },
   },
   plugins: [],
+  darkMode: "class",
 };

@@ -9,8 +9,12 @@
 }
 
 @layer base {
+  * {
+    @apply transition-colors duration-300
+  }
+
   body {
-    font-family: "Rubik" ,sans-serif;
+    font-family: "Rubik", sans-serif;
     color: white;
   }
 }

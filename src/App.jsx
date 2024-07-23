@@ -8,7 +8,7 @@ import { WeatherContext } from "./context/weatherContext";
 import { weatherApiUrl } from "./services/weatherService";
 import Loading from "./components/Loading";
 import DisplayError from "./components/DisplayError";
-import BgColor from "./context/bgColorContext";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
@@ -17,6 +17,7 @@ const App = () => {
   const [units, setUnits] = useState("metric");
   const [message, setMessage] = useState(null);
   const [toastOpen, setToastOpen] = useState(error);
+  const [dark, setDark] = useState(false);
 
   const handelShowMessage = useCallback((errorMessage) => {
     setMessage(errorMessage);
@@ -49,25 +50,6 @@ const App = () => {
   useEffect(() => {
     handleLocation();
   }, [handleLocation]);
-
-  const formatBackground = () => {
-    if (!weather) return "from-blue-400 to-blue-700";
-
-    const step = units === "metric" ? 22 : 60;
-    if (weather.temp <= step)
-      return "from-blue-400 to-blue-700 shadow-blue-300";
-
-    return "from-yellow-500 to-orange-700 shadow-orange-200";
-  };
-
-  const formatBgColor = () => {
-    if (!weather) return "bg-blue-700/20";
-
-    const step = units === "metric" ? 22 : 60;
-    if (weather.temp <= step) return "bg-blue-700/20";
-
-    return "bg-red-700/20";
-  };
 
   const fetchWeather = useCallback(
     async (searchParams) => {
@@ -103,13 +85,14 @@ const App = () => {
   }, [query, units, fetchWeather]);
 
   return (
-    <BgColor.Provider value={formatBgColor()}>
+    <div className={`${dark && "dark"}`}>
       <div
-        className={`w-full min-h-dvh overflow-hidden grid place-content-center bg-gradient-to-br ${formatBackground()}`}
+        className={`w-full min-h-dvh overflow-hidden grid place-content-center dark:bg-gray-600 bg-sky-100`}
       >
         <div
-          className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-10 px-32 rounded-xl shadow-xl bg-gradient-to-b ${formatBackground()}`}
+          className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-10 px-32 rounded-xl shadow-xl dark:bg-[#0B121E] bg-[#a4cceb]`}
         >
+          <Navbar dark={dark} setDark={setDark} />
           <TopButtons setQuery={setQuery} />
           <Inputs
             setQuery={setQuery}
@@ -129,7 +112,7 @@ const App = () => {
           {toastOpen && <DisplayError error={message} />}
         </div>
       </div>
-    </BgColor.Provider>
+    </div>
   );
 };
 

@@ -3,11 +3,8 @@ import { FaThermometerEmpty } from "react-icons/fa";
 import { FiWind } from "react-icons/fi";
 import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import BgColor from "../context/bgColorContext";
-import { useContext } from "react";
 
 const TempAndDetails = ({ units, weather }) => {
-  const bgColor = useContext(BgColor);
   const {
     desc,
     feels_like,
@@ -59,8 +56,10 @@ const TempAndDetails = ({ units, weather }) => {
   ];
 
   return (
-    <div className={`${bgColor} rounded-md shadow-inner-lg md:px-6`}>
-      <div className="flex items-center justify-center py-6 mt-6 md:text-xl text-lg text-cyan-300 capitalize">
+    <div
+      className={`dark:bg-gray-700 bg-sky-500 rounded-md shadow-inner-lg md:px-6`}
+    >
+      <div className="flex items-center justify-center py-6 mt-6 md:text-xl text-lg text-yellow-300 capitalize">
         <p>{desc}</p>
       </div>
       <div className="flex flex-row items-center justify-between p-3">

@@ -1,8 +1,4 @@
-import { useContext } from "react";
-import BgColor from "../context/bgColorContext";
-
 const TopButtons = ({ setQuery }) => {
-  const bgColor = useContext(BgColor);
   const cities = [
     {
       id: 1,
@@ -27,17 +23,19 @@ const TopButtons = ({ setQuery }) => {
   ];
   return (
     <div
-      className={`flex items-center justify-around ${bgColor} rounded-md shadow-inner-lg  p-2 mb-6`}
+      className={`rounded-md shadow-inner-lg  p-2 mb-6 dark:bg-gray-700 bg-sky-500`}
     >
-      {cities.map((city) => (
-        <button
-          key={city.id}
-          className="text-md md:text-lg font-medium hover:bg-gray-700/20 px-3 py-2 rounded-md transition ease-in"
-          onClick={() => setQuery({ q: city.name })}
-        >
-          {city.name}
-        </button>
-      ))}
+      <ul className="flex items-center justify-center  list-none">
+        {cities.map((city) => (
+          <li
+            key={city.id}
+            className="text-md md:text-lg font-medium cursor-pointer hover:bg-gray-700/20 dark:hover:bg-gray-300/20 px-3 py-2 rounded-md transition ease-in"
+            onClick={() => setQuery({ q: city.name })}
+          >
+            {city.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

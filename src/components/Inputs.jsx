@@ -1,6 +1,5 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BiCurrentLocation, BiSearch } from "react-icons/bi";
-import BgColor from "../context/bgColorContext";
 import { geoApiUrl, options } from "../services/weatherService";
 import useDebounce from "../hooks/useDebounce";
 
@@ -8,7 +7,6 @@ const Inputs = ({ setQuery, setUnits, handleLocation }) => {
   const [openList, setOpenList] = useState(false);
   const [cities, setCities] = useState([]);
   const [namePrefix, setNamePrefix] = useState("");
-  const bgColor = useContext(BgColor);
   const debounce = useDebounce(namePrefix, 600);
 
   const fetchGeoPlaces = useCallback(async (searchParams) => {
@@ -44,7 +42,7 @@ const Inputs = ({ setQuery, setUnits, handleLocation }) => {
 
   return (
     <div
-      className={`flex md:flex-row flex-col justify-center py-3 px-3 space-y-4 md:space-y-0 ${bgColor} rounded-md shadow-inner-lg`}
+      className={`flex md:flex-row flex-col justify-center py-3 px-3 space-y-4 md:space-y-0 dark:bg-gray-700 bg-sky-500 rounded-md shadow-inner-lg`}
     >
       <form className="flex flex-row w-full md:w-3/4 items-center justify-center space-x-4">
         <div className="relative w-full">

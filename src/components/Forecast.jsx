@@ -1,11 +1,8 @@
-import { useContext } from "react";
-import BgColor from "../context/bgColorContext";
-
 const Forecast = ({ title, data }) => {
-  const bgColor = useContext(BgColor);
-
   return (
-    <div className={`${bgColor} rounded-md shadow-inner-lg pb-3 px-3`}>
+    <div
+      className={`dark:bg-gray-700 bg-sky-500 rounded-md shadow-inner-lg pb-3 px-3`}
+    >
       <div className="flex items-center justify-start pt-2 mt-6 ">
         <p className="font-medium uppercase">{title}</p>
       </div>
