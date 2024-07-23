@@ -16,8 +16,8 @@ export default {
         "inner-lg": "inset 0 0 50px -10px rgba(0, 0, 0, 0.3)",
       },
       backgroundImage: {
-        day: "url('./src/assets/img/day.webp')",
-        night: "url('./src/assets/img/night.webp')",
+        day: "url('./src/assets/img/day.png')",
+        night: "url('./src/assets/img/night.png')",
       },
     },
   },
