@@ -21,9 +21,7 @@ const Navbar = ({ dark, setDark }) => {
       </div>
       <div>
         <button
-          className={`relative flex items-center border-2 w-14 h-[1.6rem] rounded-full ${
-            dark ? "bg-day" : "bg-night"
-          } bg-cover transition-all duration-300`}
+          className={`relative flex items-center border-2 w-14 h-[1.6rem] rounded-full dark:bg-day bg-night transition-all duration-300`}
           onClick={() => setDark(!dark)}
         >
           <div className="absolute rounded-full dark:left-full dark:-translate-x-full left-0 -translate-x-0 transition-all duration-300">
