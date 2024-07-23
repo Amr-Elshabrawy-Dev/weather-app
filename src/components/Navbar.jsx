@@ -3,6 +3,11 @@ import Sun from "../assets/svg/sun.svg?react";
 import Moon from "../assets/svg/moon.svg?react";
 
 const Navbar = ({ dark, setDark }) => {
+  const handleDarkMode = () => {
+    setDark(!dark);
+    localStorage.setItem("darkMode", !dark);
+  };
+
   return (
     <div className="w-full flex items-center justify-between rounded-md shadow-inner-lg px-3 py-2 mb-6 dark:bg-gray-700 bg-sky-500">
       <div className="">
@@ -27,7 +32,7 @@ const Navbar = ({ dark, setDark }) => {
       <div>
         <button
           className={`relative flex items-center border-2 w-14 h-[1.6rem] shadow-inner-lg rounded-full dark:bg-day bg-night transition-all duration-300`}
-          onClick={() => setDark(!dark)}
+          onClick={handleDarkMode}
         >
           <div className="absolute rounded-full dark:left-full dark:-translate-x-full left-0 -translate-x-0 transition-all duration-300">
             {dark ? (

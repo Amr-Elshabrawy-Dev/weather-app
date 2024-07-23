@@ -19,6 +19,11 @@ const App = () => {
   const [toastOpen, setToastOpen] = useState(error);
   const [dark, setDark] = useState(false);
 
+  useEffect(() => {
+    const darkMode = JSON.parse(localStorage.getItem("darkMode"));
+    setDark(darkMode);
+  }, []);
+
   const handelShowMessage = useCallback((errorMessage) => {
     setMessage(errorMessage);
     setToastOpen(true);
