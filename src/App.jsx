@@ -87,7 +87,7 @@ const App = () => {
   return (
     <div className={`${dark && "dark"}`}>
       <div
-        className={`w-full min-h-dvh overflow-hidden grid place-content-center dark:bg-gray-600 bg-sky-100`}
+        className={`w-full min-h-dvh overflow-hidden grid place-content-center dark:bg-gray-600 bg-sky-100 text-white`}
       >
         <div
           className={`mx-auto md:max-w-screen-lg max-w-screen-sm py-10 px-32 rounded-xl shadow-xl dark:bg-[#0B121E] bg-[#a4cceb]`}
