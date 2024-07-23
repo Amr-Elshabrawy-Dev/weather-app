@@ -20,6 +20,11 @@ const Navbar = ({ dark, setDark }) => {
         </a>
       </div>
       <div>
+        <h1 className="text-2xl font-bold text-yellow-300 uppercase">
+          weather
+        </h1>
+      </div>
+      <div>
         <button
           className={`relative flex items-center border-2 w-14 h-[1.6rem] rounded-full dark:bg-day bg-night transition-all duration-300`}
           onClick={() => setDark(!dark)}
