@@ -18,11 +18,11 @@
     color: white;
   }
   .bg-day {
-    background-image: url("./assets/img/day.png");
+    background-image: url("./assets/img/day.webp");
     background-size: cover;
   }
   .bg-night {
-    background-image: url("./assets/img/night.png");
+    background-image: url("./assets/img/night.webp");
     background-size: cover;
   }
 }
