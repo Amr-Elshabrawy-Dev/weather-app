@@ -10,11 +10,19 @@
 
 @layer base {
   * {
-    @apply transition-colors duration-300
+    @apply transition-colors duration-300;
   }
 
   body {
     font-family: "Rubik", sans-serif;
     color: white;
+  }
+  .bg-day {
+    background-image: url("./assets/img/day.png");
+    background-size: cover;
+  }
+  .bg-night {
+    background-image: url("./assets/img/night.png");
+    background-size: cover;
   }
 }
