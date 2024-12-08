@@ -1,0 +1,20 @@
+<svg viewBox="0 0 572 572" xmlns="http://www.w3.org/2000/svg" version="1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet"
+  stroke-linecap="round" stroke-linejoin="round"
+  style="filter: drop-shadow(0px 0px 1px #1860c3) drop-shadow(0px 0px 1px #1860c3) drop-shadow(0px 0px 2px #1860c3) drop-shadow(0px 0px 2px #1860c3);">
+
+  <defs>
+    <radialGradient id="bodygrad">
+      <stop offset="35%" stop-color="#1860c3" />
+      <stop offset="85%" stop-color="#080e39" />
+    </radialGradient>
+  </defs>
+  <path
+    d=" M 41 183.5, L 41 378.5, 256 503.5, 317 503.5, 531 378.5, 531 183.5, 317 68.5, 256 68.5, z"
+    stroke="#1b62c6" stroke-width="20" fill="url(#bodygrad)" />
+  <path d="M 116 305.5, L 116 385.5, 76 360.5, 76 200.5, 196 136.5, 196 430.5, 156 405.5, 156 305.5,z M 116 225.5, 116 265.5, 156 265.5, 156 205.5,z 
+    M 216 125.5, L 256 103.5, 286 205.5, 316 103.5, 356 125.5, 356 440.5, 316 465.5, 316 225.5, 300 265.5, 271 265.5, 256 225.5, 256 465.5, 216 440.5, z 
+    M 416 305.5, L 416 405.5, 376 430.5, 376 136.5, 496 200.5, 496 270.5, 476 280.5, 496 290.5, 496 360.5, 456 385.5, 456 325.5, 431 305.5,z
+    M  416 205.5, L 416 265.5, 431 265.5, 456 240.5, 456 225.5,z "
+    fill="#c5caea" stroke="#000" stroke-width="2" />
+</svg>
